@@ -1,16 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Node.js (TypeScript) API',
+    title: 'Andrew Deal',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Gatsby + Node.js (TypeScript) API',
-        short_name: 'Gatbsy + Node.js (TypeScript)',
+        name: "Andrew Deal's Website",
+        short_name: 'Andrew Deal',
         start_url: '/',
-        icon: 'src/images/gatsby-icon.png',
+        icon: 'src/images/uxpin-icon-set_like.png',
       },
     },
     `gatsby-plugin-typescript`,

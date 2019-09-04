@@ -1,9 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
-import '../styles/index.css'
 
-const StyledContainer = styled.div`
+import { Container } from '../components/Layout/Container'
+
+const StyledContent = styled.div`
   ul {
     list-style: none;
   }
@@ -11,11 +12,12 @@ const StyledContainer = styled.div`
 
 const Index = () => {
   return (
-    <main>
+    <Container>
       <Helmet>
-        <title>Personal Site</title>
+        {/* TODO -> Vet what to put in head element  */}
+        <title>Welcome, ברוך הבא, ようこそ, Bienvenido</title>
       </Helmet>
-      <StyledContainer>
+      <StyledContent>
         <h1>Hi world, my name is Andrew</h1>
         <h2>Below are some quick links, stay tuned for more information!</h2>
         <ul>
@@ -35,8 +37,8 @@ const Index = () => {
             </a>
           </li>
         </ul>
-      </StyledContainer>
-    </main>
+      </StyledContent>
+    </Container>
   )
 }
 
