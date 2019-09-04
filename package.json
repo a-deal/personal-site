@@ -6,6 +6,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.9",
     "@types/styled-components": "^4.1.18",
+    "@types/styled-theming": "^2.2.2",
     "gatsby": "^2.0.19",
     "gatsby-image": "^2.0.15",
     "gatsby-plugin-manifest": "^2.0.5",
