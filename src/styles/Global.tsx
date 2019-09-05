@@ -38,7 +38,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     color: ${globalTheme.color};
-    font-family: ${globalTheme.fontFamilyPrimary}, sans-serif;
+    font-family: ${globalTheme.fontFamilySecondary}, sans-serif;
+    font-size: 18px;
+    font-weight: 100;
     line-height: 1.5;
   }
 
@@ -49,9 +51,5 @@ export const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     font-weight: 700;
-  }
-
-  a, p {
-    font-family: ${globalTheme.fontFamilySecondary};
   }
 `
