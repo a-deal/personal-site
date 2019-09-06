@@ -153,13 +153,23 @@ const Index = () => {
         <StyledFooter>
           <StyledIconContainer>
             <StyledIconGroupLeft>
-              <Icons.Email />
-              <Icons.Twitter />
+              <a href="mailto:deal.e.andrew@gmail.com">
+                <Icons.Email />
+              </a>
+              <a target="_blank" href="https://twitter.com/a_e_deal">
+                <Icons.Twitter />
+              </a>
             </StyledIconGroupLeft>
             <StyledIconGroupBottom>
-              <Icons.Instagram />
-              <Icons.LinkedIn />
-              <Icons.Github />
+              <a target="_blank" href="https://www.instagram.com/thales_grapes/">
+                <Icons.Instagram />
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/adeal/">
+                <Icons.LinkedIn />
+              </a>
+              <a target="_blank" href="https://github.com/a-deal">
+                <Icons.Github />
+              </a>
             </StyledIconGroupBottom>
           </StyledIconContainer>
           <StyledFooterContent>
