@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
+import AvatarImage from '../images/avatar.jpg'
 
 const StyledContainer = styled.div`
   display: grid;
@@ -30,11 +31,11 @@ const StyledHeader = styled.div`
   }
 `
 
-const StyledHeaderProfile = styled.div`
-  width: 500px;
+const StyledHeaderContent = styled.div`
+  width: 320px;
 
-  p:first-child {
-    font-style: italic;
+  span {
+    text-transform: uppercase;
   }
 `
 
@@ -57,10 +58,11 @@ const StyledBody = styled.div`
 `
 
 const StyledBodyContent = styled.div`
-  width: 320px;
+  margin-left: 32px;
+  width: 500px;
 
-  span {
-    text-transform: uppercase;
+  p:first-child {
+    font-style: italic;
   }
 `
 
@@ -109,6 +111,12 @@ const StyledIconGroupBottom = styled.div`
   }
 `
 
+const StyledAvatar = styled.img`
+  border-radius: 144px 32px 32px 144px;
+  height: 256px;
+  width: 256px;
+`
+
 const Index = () => {
   return (
     <Shell>
@@ -118,18 +126,7 @@ const Index = () => {
       </Helmet>
       <StyledContainer>
         <StyledHeader>
-          <StyledHeaderProfile>
-            <p>Technologist. Problem solver. Teammate.</p>
-            <p>These are just some of the labels I go by.</p>
-            <p>At my core, I'm just a human empowering other humans.</p>
-          </StyledHeaderProfile>
-          <StyledHeaderGroup>
-            <h1>Andrew</h1>
-            <h1>Deal</h1>
-          </StyledHeaderGroup>
-        </StyledHeader>
-        <StyledBody>
-          <StyledBodyContent>
+          <StyledHeaderContent>
             <p>
               <span>Value</span> is what I strive for.
             </p>
@@ -139,6 +136,18 @@ const Index = () => {
             <p>
               <span>Collaboration</span> is what I thrive on.
             </p>
+          </StyledHeaderContent>
+          <StyledHeaderGroup>
+            <h1>Andrew</h1>
+            <h1>Deal</h1>
+          </StyledHeaderGroup>
+        </StyledHeader>
+        <StyledBody>
+          <StyledAvatar src={AvatarImage} />
+          <StyledBodyContent>
+            <p>Technologist. Problem solver. Teammate.</p>
+            <p>These are just some of the labels I go by.</p>
+            <p>At my core, I'm just a human empowering other humans.</p>
           </StyledBodyContent>
         </StyledBody>
         <StyledFooter>
