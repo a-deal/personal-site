@@ -31,7 +31,11 @@ const StyledHeader = styled.div`
 `
 
 const StyledHeaderProfile = styled.div`
-  width: 360px;
+  width: 500px;
+
+  p:first-child {
+    font-style: italic;
+  }
 `
 
 const StyledHeaderGroup = styled.div`
@@ -115,8 +119,9 @@ const Index = () => {
       <StyledContainer>
         <StyledHeader>
           <StyledHeaderProfile>
-            Welcome! Engineer, problem solver, thinker are just some of the labels I go by. At my core, I'm just a human
-            enthused with bringing value to others.
+            <p>Technologist. Problem solver. Teammate.</p>
+            <p>These are just some of the labels I go by.</p>
+            <p>At my core, I'm just a human empowering other humans.</p>
           </StyledHeaderProfile>
           <StyledHeaderGroup>
             <h1>Andrew</h1>
