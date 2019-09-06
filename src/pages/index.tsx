@@ -23,12 +23,6 @@ const StyledHeader = styled.div`
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 16px;
-
-  h1 {
-    align-self: center;
-    text-transform: uppercase;
-    opacity: 0.5;
-  }
 `
 
 const StyledHeaderContent = styled.div`
@@ -47,6 +41,8 @@ const StyledHeaderGroup = styled.div`
   h1 {
     align-self: flex-end;
     font-size: 88px;
+    opacity: 0.5;
+    text-transform: uppercase;
   }
 `
 
@@ -61,8 +57,10 @@ const StyledBodyContent = styled.div`
   margin-left: 32px;
   width: 500px;
 
-  p:first-child {
-    font-style: italic;
+  h2 {
+    margin-bottom: 8px;
+    opacity: 0.75;
+    text-transform: uppercase;
   }
 `
 
@@ -145,8 +143,10 @@ const Index = () => {
         <StyledBody>
           <StyledAvatar src={AvatarImage} />
           <StyledBodyContent>
-            <p>Technologist. Problem solver. Teammate.</p>
-            <p>These are just some of the labels I go by.</p>
+            <h2>Technologist</h2>
+            <h2>Problem solver</h2>
+            <h2>Contributor</h2>
+            <p>These are some of the labels I go by.</p>
             <p>At my core, I'm just a human empowering other humans.</p>
           </StyledBodyContent>
         </StyledBody>
