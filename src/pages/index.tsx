@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
 import { Shell } from '../components/Layout/Shell'
+import Icons from '../components/icons'
 
 const StyledContainer = styled.div`
   display: grid;
@@ -33,6 +34,17 @@ const StyledHeaderProfile = styled.div`
   width: 360px;
 `
 
+const StyledHeaderGroup = styled.div`
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    align-self: flex-end;
+    font-size: 88px;
+  }
+`
+
 const StyledBody = styled.div`
   align-items: center;
   display: flex;
@@ -44,7 +56,6 @@ const StyledBodyContent = styled.div`
   width: 320px;
 
   span {
-    font-style: italic;
     text-transform: uppercase;
   }
 `
@@ -53,13 +64,45 @@ const StyledFooter = styled.div`
   align-items: flex-end;
   display: flex;
   grid-area: 3 / 1 / 4 / 2;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
 `
 
 const StyledFooterContent = styled.div`
-  width: 320px;
-  padding-bottom: 16px;
-  padding-right: 16px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  width: 360px;
+`
+
+const StyledIconContainer = styled.div`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+`
+
+const StyledIconGroupLeft = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  svg {
+    align-self: flex-start;
+    margin-bottom: 8px;
+  }
+`
+
+const StyledIconGroupBottom = styled.div`
+  align-items: flex-end;
+  display: flex;
+
+  svg {
+    align-self: flex-end;
+    margin-right: 24px;
+  }
 `
 
 const Index = () => {
@@ -75,7 +118,10 @@ const Index = () => {
             Welcome! Engineer, problem solver, thinker are just some of the labels I go by. At my core, I'm just a human
             enthused with bringing value to others.
           </StyledHeaderProfile>
-          <h1>Andrew Deal</h1>
+          <StyledHeaderGroup>
+            <h1>Andrew</h1>
+            <h1>Deal</h1>
+          </StyledHeaderGroup>
         </StyledHeader>
         <StyledBody>
           <StyledBodyContent>
@@ -91,8 +137,20 @@ const Index = () => {
           </StyledBodyContent>
         </StyledBody>
         <StyledFooter>
+          <StyledIconContainer>
+            <StyledIconGroupLeft>
+              <Icons.Email />
+              <Icons.Twitter />
+            </StyledIconGroupLeft>
+            <StyledIconGroupBottom>
+              <Icons.Instagram />
+              <Icons.LinkedIn />
+              <Icons.Github />
+            </StyledIconGroupBottom>
+          </StyledIconContainer>
           <StyledFooterContent>
-            Did something here pique your interest? Please reach out, I'd love to connect
+            <p>Did something here pique your interest?</p>
+            <p>Please reach out, I'd love to connect</p>
           </StyledFooterContent>
         </StyledFooter>
       </StyledContainer>
