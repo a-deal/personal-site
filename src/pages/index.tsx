@@ -29,6 +29,7 @@ const StyledHeaderContent = styled.div`
   width: 320px;
 
   span {
+    font-weight: 600;
     text-transform: uppercase;
   }
 `

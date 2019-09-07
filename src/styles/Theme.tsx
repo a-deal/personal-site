@@ -9,10 +9,10 @@ const mode = (themeMap: theme.ThemeMap) => theme('mode', themeMap)
 // Global
 export const globalTheme = {
   backgroundColor: mode({
-    light: Color.martinique,
+    light: Color.white,
   }),
   color: mode({
-    light: Color.desertStorm,
+    light: Color.black,
   }),
   fontFamilyPrimary: fonts.primary,
   fontFamilySecondary: fonts.secondary,

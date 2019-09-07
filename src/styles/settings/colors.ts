@@ -1,6 +1,6 @@
 enum Color {
-  martinique = '#282242',
-  desertStorm = '#f6f7f5',
+  black = '#000',
+  white = '#FCF9EA',
 }
 
 export default Color
