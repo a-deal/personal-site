@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
@@ -142,7 +143,10 @@ const Index = () => {
           </StyledHeaderGroup>
         </StyledHeader>
         <StyledBody>
-          <StyledAvatar src={AvatarImage} />
+          <Link to="/portfolio/">
+            <StyledAvatar src={AvatarImage} />
+          </Link>
+
           <StyledBodyContent>
             <h2>Technologist</h2>
             <h2>Problem solver</h2>
@@ -154,21 +158,21 @@ const Index = () => {
         <StyledFooter>
           <StyledIconContainer>
             <StyledIconGroupLeft>
-              <a href="mailto:deal.e.andrew@gmail.com">
+              <a href="mailto:deal.e.andrew@gmail.com" rel="noopener noreferrer">
                 <Icons.Email />
               </a>
-              <a target="_blank" href="https://twitter.com/a_e_deal">
+              <a target="_blank" href="https://twitter.com/a_e_deal" rel="noopener noreferrer">
                 <Icons.Twitter />
               </a>
             </StyledIconGroupLeft>
             <StyledIconGroupBottom>
-              <a target="_blank" href="https://www.instagram.com/thales_grapes/">
+              <a target="_blank" href="https://www.instagram.com/thales_grapes/" rel="noopener noreferrer">
                 <Icons.Instagram />
               </a>
-              <a target="_blank" href="https://www.linkedin.com/in/adeal/">
+              <a target="_blank" href="https://www.linkedin.com/in/adeal/" rel="noopener noreferrer">
                 <Icons.LinkedIn />
               </a>
-              <a target="_blank" href="https://github.com/a-deal">
+              <a target="_blank" href="https://github.com/a-deal" rel="noopener noreferrer">
                 <Icons.Github />
               </a>
             </StyledIconGroupBottom>
