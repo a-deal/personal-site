@@ -12,7 +12,7 @@ export const globalTheme = {
     light: Color.white,
   }),
   color: mode({
-    light: Color.black,
+    light: Color.doveGray,
   }),
   fontFamilyPrimary: fonts.primary,
   fontFamilySecondary: fonts.secondary,
