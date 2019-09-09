@@ -27,8 +27,28 @@ const StyledCard = styled.div`
   border: 1px solid #dedede;
   border-radius: 8px;
   height: 320px;
-  padding: 8px;
-  width: 280px;
+  padding: 16px;
+  width: 328px;
+
+  h2 {
+    font-size: 18px;
+  }
+`
+
+const StyledCardHeader = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+`
+
+const StyledCardHeaderInfo = styled.div`
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 10px;
+  }
 `
 
 const StyledCardLogo = styled.img`
@@ -47,29 +67,61 @@ const Portfolio = () => {
       <StyledPortfolioContainer>
         <StyledPortfolioItem gridArea={'1 / 1 / 2 / 2'}>
           <StyledCard>
-            <StyledCardLogo src={OverLogo} />
+            <StyledCardHeader>
+              <StyledCardLogo src={OverLogo} />
+              <StyledCardHeaderInfo>
+                <h2>Over Inc.</h2>
+                <p>April ‘19 - present</p>
+              </StyledCardHeaderInfo>
+            </StyledCardHeader>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
           <StyledCard>
-            <StyledCardLogo src={TwitchLogo} />
+            <StyledCardHeader>
+              <StyledCardLogo src={TwitchLogo} />
+              <StyledCardHeaderInfo>
+                <h2>Twitch Inc.</h2>
+                <p>May ‘16 - October ‘17</p>
+              </StyledCardHeaderInfo>
+            </StyledCardHeader>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1/ 3 / 2 / 4'}>
-          <StyledCard>Your Company</StyledCard>
+          <StyledCard>
+            <StyledCardHeader>
+              <h2>Your Company...</h2>
+            </StyledCardHeader>
+          </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'2 / 1 / 3 / 2'}>
           <StyledCard>
-            <StyledCardLogo src={GMULogo} />
+            <StyledCardHeader>
+              <StyledCardLogo src={GMULogo} />
+              <StyledCardHeaderInfo>
+                <h2>George Mason University</h2>
+                <p>B.A. Philosophy, 2012</p>
+              </StyledCardHeaderInfo>
+            </StyledCardHeader>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'2 / 2 / 3 / 3'}>
           <StyledCard>
-            <StyledCardLogo src={OxfordLogo} />
+            <StyledCardHeader>
+              <StyledCardLogo src={OxfordLogo} />
+              <StyledCardHeaderInfo>
+                <h2>Oxford University</h2>
+                <p>Ancient & Analytical Philosophy, 2011</p>
+              </StyledCardHeaderInfo>
+            </StyledCardHeader>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'2 / 3 / 3 / 4'}>
-          <StyledCard>Current Areas of Interest</StyledCard>
+          <StyledCard>
+            <StyledCardHeader>
+              <h2>Current Areas of Interest</h2>
+            </StyledCardHeader>
+          </StyledCard>
         </StyledPortfolioItem>
       </StyledPortfolioContainer>
     </Shell>
