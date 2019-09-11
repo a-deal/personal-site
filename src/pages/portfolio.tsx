@@ -5,6 +5,7 @@ import TwitchLogo from '../images/twitch_logo.png'
 import OverLogo from '../images/over_logo.jpg'
 import GMULogo from '../images/gmu_logo.png'
 import OxfordLogo from '../images/oxford_logo.jpg'
+import EngineerBulletImage from '../images/programming-flag.png'
 import { Shell } from '../components/Layout/Shell'
 import Helmet from 'react-helmet'
 
@@ -26,9 +27,9 @@ const StyledCard = styled.div`
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border: 1px solid #dedede;
   border-radius: 8px;
-  height: 320px;
+  height: 352px;
   padding: 16px;
-  width: 328px;
+  width: 376px;
 
   h2 {
     font-size: 18px;
@@ -51,10 +52,52 @@ const StyledCardHeaderInfo = styled.div`
   }
 `
 
+const StyledDivider = styled.div`
+  position: relative;
+  height: 1px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+
+  ::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, rgb(101, 101, 101), transparent);
+  }
+`
+
 const StyledCardLogo = styled.img`
   border-radius: 8px;
   height: 50px;
   width: 50px;
+`
+
+const StyledList = styled.ol`
+  list-style-type: none;
+
+  li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  li::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 100%;
+    top: 1px;
+    left: 0;
+    background-image: url(${EngineerBulletImage});
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 0 2px;
+  }
 `
 
 const Portfolio = () => {
@@ -74,6 +117,13 @@ const Portfolio = () => {
                 <p>April ‘19 - present</p>
               </StyledCardHeaderInfo>
             </StyledCardHeader>
+            <StyledDivider />
+            <StyledList>
+              <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
+              <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
+              <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
+              <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
+            </StyledList>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
@@ -85,6 +135,13 @@ const Portfolio = () => {
                 <p>May ‘16 - October ‘17</p>
               </StyledCardHeaderInfo>
             </StyledCardHeader>
+            <StyledDivider />
+            <StyledList>
+              <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
+              <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
+              <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
+              <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
+            </StyledList>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1/ 3 / 2 / 4'}>
