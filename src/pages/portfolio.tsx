@@ -6,6 +6,7 @@ import OverLogo from '../images/over_logo.jpg'
 import GMULogo from '../images/gmu_logo.png'
 import OxfordLogo from '../images/oxford_logo.jpg'
 import EngineerBulletImage from '../images/programming-flag.png'
+import EducationBulletImage from '../images/pencil-2.png'
 import { Shell } from '../components/Layout/Shell'
 import Helmet from 'react-helmet'
 
@@ -76,12 +77,12 @@ const StyledCardLogo = styled.img`
   width: 50px;
 `
 
-const StyledList = styled.ol`
+const StyledList = styled.ol<{ listImage: string }>`
   list-style-type: none;
 
   li {
     font-size: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     position: relative;
     padding-left: 24px;
   }
@@ -93,7 +94,7 @@ const StyledList = styled.ol`
     height: 100%;
     top: 1px;
     left: 0;
-    background-image: url(${EngineerBulletImage});
+    background-image: url(${props => props.listImage});
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: 0 2px;
@@ -118,7 +119,7 @@ const Portfolio = () => {
               </StyledCardHeaderInfo>
             </StyledCardHeader>
             <StyledDivider />
-            <StyledList>
+            <StyledList listImage={EngineerBulletImage}>
               <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
               <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
               <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
@@ -136,7 +137,7 @@ const Portfolio = () => {
               </StyledCardHeaderInfo>
             </StyledCardHeader>
             <StyledDivider />
-            <StyledList>
+            <StyledList listImage={EngineerBulletImage}>
               <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
               <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
               <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
@@ -160,6 +161,13 @@ const Portfolio = () => {
                 <p>B.A. Philosophy, 2012</p>
               </StyledCardHeaderInfo>
             </StyledCardHeader>
+            <StyledDivider />
+            <StyledList listImage={EducationBulletImage}>
+              <li>Graduated Cum Laude with 3.65 GPA.</li>
+              <li>Concentrated in Analytic, Ancient and Existential Philosophy.</li>
+              <li>Founded and led incipient CrossFit affiliate program for 50+ faculty members and students.</li>
+              <li>Administered fitness and nutritional seminars for 75+ Army ROTC cadets.</li>
+            </StyledList>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'2 / 2 / 3 / 3'}>
@@ -168,9 +176,19 @@ const Portfolio = () => {
               <StyledCardLogo src={OxfordLogo} />
               <StyledCardHeaderInfo>
                 <h2>Oxford University</h2>
-                <p>Ancient & Analytical Philosophy, 2011</p>
+                <p>Exchange Student, 2011</p>
               </StyledCardHeaderInfo>
             </StyledCardHeader>
+            <StyledDivider />
+            <StyledList listImage={EducationBulletImage}>
+              <li>Engaged in rigorous tutorial system focusing on Philosophy of Science and Modern Philosophy.</li>
+              <li>Developed analytical and critical writing skills under fast-paced deadlines.</li>
+              <li>
+                Collaborated with eminent professors to develop cogent rebuttals to highly nuanced areas within Analytic
+                and Continental Philosophy.
+              </li>
+              <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
+            </StyledList>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'2 / 3 / 3 / 4'}>
