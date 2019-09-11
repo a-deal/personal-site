@@ -43,6 +43,12 @@ const StyledCardHeader = styled.div`
   justify-content: space-between;
 `
 
+const StyledCardLogo = styled.img`
+  border-radius: 8px;
+  height: 50px;
+  width: 50px;
+`
+
 const StyledCardHeaderInfo = styled.div`
   align-items: flex-end;
   display: flex;
@@ -57,7 +63,7 @@ const StyledDivider = styled.div`
   position: relative;
   height: 1px;
   margin-top: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
   ::before {
     content: '';
@@ -71,10 +77,14 @@ const StyledDivider = styled.div`
   }
 `
 
-const StyledCardLogo = styled.img`
-  border-radius: 8px;
-  height: 50px;
-  width: 50px;
+const StyledCardBody = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    align-self: center;
+    margin-bottom: 12px;
+  }
 `
 
 const StyledList = styled.ol<{ listImage: string }>`
@@ -119,12 +129,15 @@ const Portfolio = () => {
               </StyledCardHeaderInfo>
             </StyledCardHeader>
             <StyledDivider />
-            <StyledList listImage={EngineerBulletImage}>
-              <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
-              <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
-              <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
-              <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
-            </StyledList>
+            <StyledCardBody>
+              <h2>Web Engineer</h2>
+              <StyledList listImage={EngineerBulletImage}>
+                <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
+                <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
+                <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
+                <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
+              </StyledList>
+            </StyledCardBody>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
@@ -137,12 +150,15 @@ const Portfolio = () => {
               </StyledCardHeaderInfo>
             </StyledCardHeader>
             <StyledDivider />
-            <StyledList listImage={EngineerBulletImage}>
-              <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
-              <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
-              <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
-              <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
-            </StyledList>
+            <StyledCardBody>
+              <h2>Software Engineer</h2>
+              <StyledList listImage={EngineerBulletImage}>
+                <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
+                <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
+                <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
+                <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
+              </StyledList>
+            </StyledCardBody>
           </StyledCard>
         </StyledPortfolioItem>
         <StyledPortfolioItem gridArea={'1/ 3 / 2 / 4'}>
