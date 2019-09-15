@@ -212,6 +212,11 @@ const Portfolio = () => {
             <StyledCardHeader>
               <h2>Current Areas of Interest</h2>
             </StyledCardHeader>
+            <ol>
+              <li>What I'm reading</li>
+              <li>What I'm working on</li>
+              <li>What excites me</li>
+            </ol>
           </StyledCard>
         </StyledPortfolioItem>
       </StyledPortfolioContainer>
