@@ -12,7 +12,7 @@ import Helmet from 'react-helmet'
 
 const StyledPortfolioContainer = styled.div`
   display: grid;
-  grid-template: 2 / 3;
+  grid-template: 2 / 2;
   height: 100vh;
 `
 
@@ -30,7 +30,8 @@ const StyledCard = styled.div`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: 352px;
+  height: 330px;
+  justify-content: space-between;
   padding: 16px;
   width: 648px;
 
@@ -189,7 +190,6 @@ const Portfolio = () => {
               </StyledCardBodyHeader>
               <StyledList listImage={EducationBulletImage}>
                 <li>Engaged in rigorous tutorial system focusing on Philosophy of Science and Modern Philosophy.</li>
-                <li>Developed analytical and critical writing skills under fast-paced deadlines.</li>
                 <li>
                   Collaborated with eminent professors to develop cogent rebuttals to highly nuanced areas within
                   Analytic and Continental Philosophy.
