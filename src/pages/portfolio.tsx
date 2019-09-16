@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import TwitchLogo from '../images/twitch_logo.png'
 import OverLogo from '../images/over_logo.jpg'
@@ -23,29 +23,71 @@ const StyledPortfolioItem = styled.div<{ gridArea: string }>`
   justify-content: center;
 `
 
+const StyledCardHeader = styled.div`
+  align-items: center;
+  display: flex;
+  left: 50%;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 1s ease, left 0.5s ease;
+  white-space: nowrap;
+
+  &:hover {
+    left: 16px;
+    top: 16px;
+  }
+`
+
+const StyledCardBody = styled.div`
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  opacity: 0;
+`
+
+const fadeIn = keyframes`
+0% {
+  opacity: 0;
+}
+
+100% {
+  opacity: 1;
+}
+`
+
 const StyledCard = styled.div`
   background-color: white;
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border: 1px solid #dedede;
   border-radius: 8px;
   display: flex;
-  flex-direction: column;
   height: 330px;
   justify-content: space-between;
   padding: 16px;
+  position: relative;
   width: 648px;
 
   h2 {
     font-size: 18px;
   }
-`
 
-const StyledCardHeader = styled.div`
-  align-items: center;
-  display: flex;
-  margin-bottom: 16px;
-  margin-right: 16px;
-  white-space: nowrap;
+  &:hover {
+    ${StyledCardHeader} {
+      left: 16px;
+      transform: translate(0, 0);
+      top: 16px;
+    }
+
+    ${StyledCardBody} {
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      animation-name: ${fadeIn};
+      animation-iteration-count: 1;
+    }
+  }
 `
 
 const StyledCardLogo = styled.img`
@@ -65,12 +107,6 @@ const StyledCardBodyHeader = styled.div`
   p {
     font-size: 12px;
   }
-`
-
-const StyledCardBody = styled.div`
-  align-items: center;
-  align-self: flex-end;
-  display: flex;
 `
 
 const StyledList = styled.ol<{ listImage: string }>`
