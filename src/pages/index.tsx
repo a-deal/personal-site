@@ -2,10 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
 import AvatarImage from '../images/avatar.jpg'
+import TransitionImage from '../images/transition_quote.png'
 
 const StyledContainer = styled.div`
   display: grid;
@@ -143,9 +145,20 @@ const Index = () => {
           </StyledHeaderGroup>
         </StyledHeader>
         <StyledBody>
-          <Link to="/portfolio/">
+          <AniLink
+            cover
+            bg={`
+            url(${TransitionImage})
+            center / cover
+            no-repeat
+            fixed
+            `}
+            direction="top"
+            to="/portfolio/"
+            duration={4}
+          >
             <StyledAvatar src={AvatarImage} />
-          </Link>
+          </AniLink>
 
           <StyledBodyContent>
             <h2>Technologist</h2>

@@ -14,6 +14,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-typescript`,
+    `gatsby-plugin-transition-link`,
     `gatsby-plugin-styled-components`,
   ],
 }
