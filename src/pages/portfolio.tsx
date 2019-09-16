@@ -32,7 +32,7 @@ const StyledCardHeader = styled.div`
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: top 1s ease, left 0.5s ease;
+  transition: top 0.75s ease-in 50ms, left 0.75s ease-in 50ms, transform 0.75s ease-in 50ms;
   white-space: nowrap;
 
   &:hover {
@@ -82,6 +82,7 @@ const StyledCard = styled.div`
     }
 
     ${StyledCardBody} {
+      animation-delay: 0.5s;
       animation-duration: 2s;
       animation-fill-mode: forwards;
       animation-name: ${fadeIn};
