@@ -68,11 +68,7 @@ const StyledCard = styled.div`
   justify-content: space-between;
   padding: 16px;
   position: relative;
-  width: 648px;
-
-  h2 {
-    font-size: 18px;
-  }
+  width: 680px;
 
   &:hover {
     ${StyledCardHeader} {
@@ -103,6 +99,7 @@ const StyledCardBodyHeader = styled.div`
   display: flex;
   flex: 0 0 250px;
   flex-direction: column;
+  margin-right: 16px;
   white-space: nowrap;
 
   p {
@@ -153,11 +150,11 @@ const Portfolio = () => {
           <StyledCard>
             <StyledCardHeader>
               <StyledCardLogo src={OverLogo} />
-              <h1>Over Inc.</h1>
+              <h3>Over Inc.</h3>
             </StyledCardHeader>
             <StyledCardBody>
               <StyledCardBodyHeader>
-                <h2>Web Engineer</h2>
+                <h5>Web Engineer</h5>
                 <StyledDivider />
                 <p>April ‘19 - present</p>
               </StyledCardBodyHeader>
@@ -174,11 +171,11 @@ const Portfolio = () => {
           <StyledCard>
             <StyledCardHeader>
               <StyledCardLogo src={TwitchLogo} />
-              <h1>Twitch Inc.</h1>
+              <h3>Twitch Inc.</h3>
             </StyledCardHeader>
             <StyledCardBody>
               <StyledCardBodyHeader>
-                <h2>Software Engineer</h2>
+                <h5>Software Engineer</h5>
                 <StyledDivider />
                 <p>May ‘16 - October ‘17</p>
               </StyledCardBodyHeader>
@@ -195,11 +192,11 @@ const Portfolio = () => {
           <StyledCard>
             <StyledCardHeader>
               <StyledCardLogo src={GMULogo} />
-              <h1>George Mason University</h1>
+              <h3>George Mason University</h3>
             </StyledCardHeader>
             <StyledCardBody>
               <StyledCardBodyHeader>
-                <h2>Philosophy, B.A.</h2>
+                <h5>Philosophy, B.A.</h5>
                 <StyledDivider />
                 <p>2012</p>
               </StyledCardBodyHeader>
@@ -216,12 +213,12 @@ const Portfolio = () => {
           <StyledCard>
             <StyledCardHeader>
               <StyledCardLogo src={OxfordLogo} />
-              <h1>Oxford University</h1>
+              <h3>Oxford University</h3>
             </StyledCardHeader>
             <StyledCardBody>
               <StyledCardBodyHeader>
-                <h2>Philosophy of Science,</h2>
-                <h2>Modern Philosophy</h2>
+                <h5>Philosophy of Science,</h5>
+                <h5>Modern Philosophy</h5>
                 <StyledDivider />
                 <p>2011</p>
               </StyledCardBodyHeader>

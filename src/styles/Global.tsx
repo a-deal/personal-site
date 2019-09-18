@@ -27,29 +27,40 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-display: fallback;
     font-family: 'Kollektif';
-    font-weight: 100;
     src: url('${kollektif}');
   }
 
-  html {
-    background-color: ${globalTheme.backgroundColor};
-    box-sizing: border-box;
-  }
+  html { font-size: 20px; }
 
   body {
-    color: ${globalTheme.color};
+    background-color: ${globalTheme.backgroundColor};
+    box-sizing: border-box;
+    color: #333;
     font-family: ${globalTheme.fontFamilySecondary}, sans-serif;
-    font-size: 18px;
-    font-weight: 100;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.45;
   }
 
   h1,
   h2,
   h3,
   h4,
-  h5,
-  h6 {
-    font-weight: 700;
+  h5 {
+    font-family: ${globalTheme.fontFamilyPrimary};
+    font-weight: 400;
+    line-height: 1.15;
   }
+
+  h1 {
+    font-size: 4.209em;
+    margin-top: 0;
+  }
+
+  h2 { font-size: 3.157em; }
+  h3 { font-size: 2.369em; }
+  h4 { font-size: 1.777em; }
+  h5 { font-size: 1.333em; }
+
+  small,
+  .text_small { font-size: 0.75em; }
 `
