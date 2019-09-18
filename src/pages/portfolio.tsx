@@ -226,10 +226,13 @@ const Portfolio = () => {
                 <p>2011</p>
               </StyledCardBodyHeader>
               <StyledList listImage={EducationBulletImage}>
-                <li>Engaged in rigorous tutorial system focusing on Philosophy of Science and Modern Philosophy.</li>
                 <li>
-                  Collaborated with eminent professors to develop cogent rebuttals to highly nuanced areas within
-                  Analytic and Continental Philosophy.
+                  Thrived in rigorous tutorial system and under fast-paced deadlines to develop, defend, and progress
+                  well-thought positions and rhetoric.
+                </li>
+                <li>
+                  Collaborated with eminent professors to hone critical thinking skills within highly nuanced areas of
+                  philosophical enquiries.
                 </li>
                 <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
               </StyledList>
