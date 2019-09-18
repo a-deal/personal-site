@@ -98,8 +98,10 @@ const StyledPulse = styled.span`
 const StyledTextContainer = styled.div`
   align-items: center;
   display: flex;
+  justify-content: flex-end;
   line-height: 1.5em;
   margin-bottom: 16px;
+  white-space: preserve;
 `
 
 const Index = () => {
@@ -157,11 +159,10 @@ const Index = () => {
               >
                 <StyledPulse />
               </AniLink>
-              <p>What I’ve done</p>
+              <p>What I've Done</p>
             </StyledTextContainer>
 
             <StyledTextContainer>
-              <StyledPulse />
               <p>What I’m into</p>
             </StyledTextContainer>
           </StyledRightContentBody>
