@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 import { Shell } from '../components/Layout/Shell'
@@ -20,8 +20,8 @@ const StyledContainer = styled.div`
 const StyledMiddleContent = styled.div`
   align-items: center;
   display: flex;
-  grid-area: 1 / 2 / 6 / 6;
   flex-direction: column;
+  grid-area: 1 / 2 / 6 / 6;
   justify-content: center;
   white-space: pre;
 
@@ -51,22 +51,55 @@ const StyledRightContent = styled.div`
 const StyledRightContentBody = styled.div`
   display: flex;
   flex-direction: column;
-
-  p {
-    margin-bottom: 32px;
-  }
 `
 
 const StyledIconGroup = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   height: 100%;
+  justify-content: space-around;
 `
 
 const StyledLeftContent = styled.div`
   grid-area: 2 / 1 / 5 / 2;
   padding-left: 32px;
+`
+
+const pulse = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+`
+
+const StyledPulse = styled.span`
+  animation: ${pulse} 2s infinite;
+  background: #cca92c;
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  cursor: pointer;
+  display: block;
+  height: 18px;
+  margin-right: 12px;
+  width: 18px;
+
+  &:hover {
+    animation: none;
+  }
+`
+
+const StyledTextContainer = styled.div`
+  align-items: center;
+  display: flex;
+  line-height: 1.5em;
+  margin-bottom: 16px;
 `
 
 const Index = () => {
@@ -109,8 +142,28 @@ const Index = () => {
         </StyledMiddleContent>
         <StyledRightContent>
           <StyledRightContentBody>
-            <p>What I’ve done</p>
-            <p>What I’m into</p>
+            <StyledTextContainer>
+              <AniLink
+                cover
+                bg={`
+                  url(${TransitionImage})
+                  center / cover
+                  no-repeat
+                  fixed
+                `}
+                direction="top"
+                to="/portfolio/"
+                duration={4}
+              >
+                <StyledPulse />
+              </AniLink>
+              <p>What I’ve done</p>
+            </StyledTextContainer>
+
+            <StyledTextContainer>
+              <StyledPulse />
+              <p>What I’m into</p>
+            </StyledTextContainer>
           </StyledRightContentBody>
         </StyledRightContent>
       </StyledContainer>
