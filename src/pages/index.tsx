@@ -2,13 +2,14 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled, { keyframes } from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { useSpring, animated } from 'react-spring'
 
 import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
 import AvatarImage from '../images/avatar.jpg'
 import TransitionImage from '../images/transition_quote.png'
 
-const StyledContainer = styled.div`
+const StyledContainer = styled(animated.div)`
   display: grid;
   grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 100vh;
@@ -30,8 +31,8 @@ const StyledMiddleContent = styled.div`
   }
 `
 
-const StyledAvatar = styled.img`
-  border-radius: 144px;
+const StyledAvatar = styled(animated.img)`
+  border-radius: 64px;
   height: 256px;
   margin-bottom: 32px;
   width: 256px;
@@ -105,12 +106,22 @@ const StyledTextContainer = styled.div`
 `
 
 const Index = () => {
+  const containerProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+  })
+
+  const calc = (x: number, y: number) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
+  const trans = (x: number, y: number, s: number) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
+  const [avatarProps, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+
   return (
     <Shell>
       <Helmet>
         <title>Welcome, ברוך הבא, ようこそ, Bienvenido</title>
       </Helmet>
-      <StyledContainer>
+
+      <StyledContainer style={containerProps}>
         <StyledLeftContent>
           <StyledIconGroup>
             <a href="mailto:deal.e.andrew@gmail.com" rel="noopener noreferrer">
@@ -133,7 +144,12 @@ const Index = () => {
 
         <StyledMiddleContent>
           <h1>Hi, I'm Andrew</h1>
-          <StyledAvatar src={AvatarImage} />
+          <StyledAvatar
+            onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+            onMouseLeave={() => set({ xys: [0, 0, 1] })}
+            style={{ transform: avatarProps.xys.interpolate(trans) }}
+            src={AvatarImage}
+          />
           <StyledMiddleContentHeader>
             <h4>Technologist · </h4>
             <h4>Problem solver · </h4>
