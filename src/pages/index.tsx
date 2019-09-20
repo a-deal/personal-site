@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import styled, { keyframes } from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, useTransition, animated, config } from 'react-spring'
 
 import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
@@ -37,7 +37,7 @@ const StyledAvatar = styled(animated.img)`
   margin-bottom: 32px;
   width: 256px;
 `
-const StyledMiddleContentHeader = styled.div`
+const StyleMiddleContentSubHeader = styled(animated.div)`
   display: flex;
   margin-bottom: 24px;
 `
@@ -105,15 +105,64 @@ const StyledTextContainer = styled.div`
   white-space: preserve;
 `
 
+const StyledMiddleContentHeader = styled.div`
+  display: flex;
+  justify: center;
+`
+
 const Index = () => {
   const containerProps = useSpring({
     opacity: 1,
     from: { opacity: 0 },
+    config: config.molasses,
   })
 
   const calc = (x: number, y: number) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
   const trans = (x: number, y: number, s: number) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
   const [avatarProps, set] = useSpring(() => ({ xys: [0, 0, 1], config: { mass: 5, tension: 350, friction: 40 } }))
+
+  const mainHeaderItems = [
+    { text: 'H', key: 1 },
+    { text: 'i', key: 2 },
+    { text: ' ', key: 3 },
+    { text: `I'm`, key: 4 },
+    { text: ` `, key: 5 },
+    { text: 'A', key: 6 },
+    { text: 'n', key: 7 },
+    { text: 'd', key: 8 },
+    { text: 'r', key: 9 },
+    { text: 'e', key: 10 },
+    { text: 'w', key: 11 },
+  ]
+
+  const mainHeaderTransitions = useTransition(mainHeaderItems, item => item.key, {
+    from: { opacity: 0, transform: 'translate3d(0,-40px,0)' },
+    enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    trail: 200,
+    config: config.gentle,
+  })
+
+  const subHeaderItems = [
+    { text: 'Technologist · ', key: 1 },
+    { text: 'Problem Solver · ', key: 2 },
+    { text: 'Contributer', key: 3 },
+  ]
+
+  const subHeaderTransitions = useTransition(subHeaderItems, item => item.key, {
+    from: { opacity: 0, transform: 'translate3d(500px,400px,100px)' },
+    enter: { opacity: 1, transform: 'translate3d(0,0px,0)' },
+    immediate: false,
+    trail: 1000,
+    delay: 1000,
+    config: config.stiff,
+  })
+
+  const textProps = useSpring({
+    from: { transform: `translate(${window.innerWidth}px, 0)` },
+    to: { transform: 'translate(0, 0)' },
+    config: config.slow,
+    delay: 3000,
+  })
 
   return (
     <Shell>
@@ -143,21 +192,33 @@ const Index = () => {
         </StyledLeftContent>
 
         <StyledMiddleContent>
-          <h1>Hi, I'm Andrew</h1>
+          <h1>
+            <StyledMiddleContentHeader>
+              {mainHeaderTransitions.map(({ item, props, key }) => (
+                <animated.div key={key} style={props}>
+                  {item.text}
+                </animated.div>
+              ))}
+            </StyledMiddleContentHeader>
+          </h1>
+
           <StyledAvatar
             onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
             onMouseLeave={() => set({ xys: [0, 0, 1] })}
             style={{ transform: avatarProps.xys.interpolate(trans) }}
             src={AvatarImage}
           />
-          <StyledMiddleContentHeader>
-            <h4>Technologist · </h4>
-            <h4>Problem solver · </h4>
-            <h4>Contributor</h4>
-          </StyledMiddleContentHeader>
-          <p>These are some of the labels I go by.</p>
-          <p>At my core, I'm just a human empowering other humans.</p>
+          <StyleMiddleContentSubHeader>
+            {subHeaderTransitions.map(({ item, props, key }) => (
+              <animated.h4 key={key} style={props}>
+                {item.text}
+              </animated.h4>
+            ))}
+          </StyleMiddleContentSubHeader>
+          <animated.p style={textProps}>These are some of the labels I go by.</animated.p>
+          <animated.p style={textProps}>At my core, I'm just a human empowering other humans.</animated.p>
         </StyledMiddleContent>
+
         <StyledRightContent>
           <StyledRightContentBody>
             <StyledTextContainer>

@@ -18,8 +18,8 @@ const StyledPortfolioContainer = styled.div`
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
   align-items: center;
-  grid-area: ${props => props.gridArea};
   display: flex;
+  grid-area: ${props => props.gridArea};
   justify-content: center;
 `
 
@@ -49,19 +49,19 @@ const StyledCardBody = styled.div`
 `
 
 const fadeIn = keyframes`
-0% {
-  opacity: 0;
-}
+  0% {
+    opacity: 0;
+  }
 
-100% {
-  opacity: 1;
-}
+  100% {
+    opacity: 1;
+  }
 `
 
 const StyledCard = styled.div`
   background-color: white;
-  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border: 1px solid #dedede;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   display: flex;
   height: 330px;
