@@ -7,8 +7,7 @@ import GMULogo from '../images/gmu_logo.png'
 import OxfordLogo from '../images/oxford_logo.jpg'
 import EngineerBulletImage from '../images/programming-flag.png'
 import EducationBulletImage from '../images/pencil-2.png'
-import { Shell } from '../components/Layout/Shell'
-import Helmet from 'react-helmet'
+import { Shell } from './Layout/Shell'
 
 const StyledPortfolioContainer = styled.div`
   display: grid;
@@ -140,11 +139,8 @@ const StyledDivider = styled.div`
 
 const Portfolio = () => {
   return (
+    // TODO refactor shell to parent component
     <Shell>
-      <Helmet>
-        <title>Portfolio</title>
-      </Helmet>
-
       <StyledPortfolioContainer>
         <StyledPortfolioItem gridArea={'1 / 1 / 2 / 2'}>
           <StyledCard>
