@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     src: url('${kollektif}');
   }
 
-  html { font-size: 20px; }
+  html { font-size: 24px; }
 
   body {
     background-color: ${globalTheme.backgroundColor};
