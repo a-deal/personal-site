@@ -4,7 +4,7 @@ import { useSpring, useTransition, animated, config } from 'react-spring'
 
 import Icons from '../components/icons'
 import AvatarImage from '../images/avatar.jpg'
-import RightArrow from '../images/arrow-right.png'
+import RightArrowImage from '../images/arrow-right.png'
 import { globalTheme } from '../styles/Theme'
 
 const StyledContainer = styled(animated.div)<{ height: string }>`
@@ -128,7 +128,7 @@ const Home = (props: { onTransition: (transitionProps: any) => void }) => {
   })
 
   const textProps = useSpring({
-    from: { transform: `translate(${window.innerWidth}px, 0)` },
+    from: { transform: `translate(100vw, 0)` },
     to: { transform: 'translate(0, 0)' },
     config: config.slow,
     delay: 3000,
@@ -200,7 +200,7 @@ const Home = (props: { onTransition: (transitionProps: any) => void }) => {
         <StyledRightContentBody>
           <StyledButtonContainer onClick={handleTransitionToPortfolio}>
             <button>About Me</button>
-            <img src={RightArrow} />
+            <img src={RightArrowImage} />
           </StyledButtonContainer>
         </StyledRightContentBody>
       </StyledRightContent>
