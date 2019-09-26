@@ -12,25 +12,27 @@ import HomeImage from '../images/home.png'
 import { useSpring } from 'react-spring'
 
 const StyledPortfolioContainer = styled.div`
+  align-items: center;
   background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-area: 2 / 2;
-  height: 100%;
+  grid-template: calc(50% - 42px) 84px calc(50% - 42px) / 1fr 84px 1fr;
+  height: calc(100%);
+  justify-items: center;
 `
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
   align-items: center;
   display: flex;
   grid-area: ${props => props.gridArea};
+  height: inherit;
   justify-content: center;
+  padding: 16px;
 `
 
 const StyledCardHeader = styled.div`
   align-items: center;
   display: flex;
   left: 50%;
-  margin-bottom: 16px;
-  margin-right: 16px;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -68,11 +70,10 @@ const StyledCard = styled.div`
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   display: flex;
-  height: 40vh;
+  height: inherit;
   padding: 16px;
   position: relative;
   overflow-x: scroll;
-  width: 45vw;
 
   &:hover {
     ${StyledCardHeader} {
@@ -149,12 +150,9 @@ const StyledHomeImageContainer = styled.div`
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   cursor: pointer;
   display: flex;
+  grid-area: 2 / 2 / 3 / 3;
   height: 50px;
   justify-content: center;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 50px;
 `
 
@@ -162,15 +160,15 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
   const transitionProps = useSpring({
     to: [{ transform: `translateZ(-50vw) rotateY(-270deg)` }, { transform: `translateZ(-50vw) rotateY(-360deg)` }],
     from: { transform: `translateZ(-50vw) rotateY(180deg)` },
-    config: { mass: 25, tension: 50, friction: 50 },
+    config: { mass: 50, tension: 25, friction: 50 },
     delay: 100,
   })
 
   const handleTransitionToHome = () => {
     props.onTransition(transitionProps)
   }
+
   return (
-    // TODO refactor shell to parent component
     <StyledPortfolioContainer>
       <StyledHomeImageContainer onClick={handleTransitionToHome}>
         <img src={HomeImage} />
@@ -198,7 +196,7 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
-      <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
+      <StyledPortfolioItem gridArea={'1 / 3 / 2 / 4'}>
         <StyledCard>
           <StyledCardHeader>
             <StyledCardLogo src={TwitchLogo} />
@@ -221,7 +219,7 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
-      <StyledPortfolioItem gridArea={'2 / 1 / 3 / 2'}>
+      <StyledPortfolioItem gridArea={'3 / 1 / 4 / 2'}>
         <StyledCard>
           <StyledCardHeader>
             <StyledCardLogo src={GMULogo} />
@@ -244,7 +242,7 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
-      <StyledPortfolioItem gridArea={'2 / 2 / 3 / 3'}>
+      <StyledPortfolioItem gridArea={'3 / 3 / 4 / 4'}>
         <StyledCard>
           <StyledCardHeader>
             <StyledCardLogo src={OxfordLogo} />

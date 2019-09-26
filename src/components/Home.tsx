@@ -137,7 +137,7 @@ const Home = (props: { onTransition: (transitionProps: any) => void }) => {
   const transitionProps = useSpring({
     to: [{ transform: `translateZ(-50vw) rotateY(-90deg)` }, { transform: `translateZ(-50vw) rotateY(-180deg)` }],
     from: { transform: `translateZ(-50vw) rotateY(0deg)` },
-    config: { mass: 25, tension: 50, friction: 50 },
+    config: { mass: 20, tension: 50, friction: 50 },
     delay: 100,
   })
 
