@@ -63,4 +63,10 @@ export const GlobalStyle = createGlobalStyle`
 
   small,
   .text_small { font-size: 0.75em; }
+
+  button { 
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+  }
 `

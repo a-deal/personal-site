@@ -7,12 +7,13 @@ import GMULogo from '../images/gmu_logo.png'
 import OxfordLogo from '../images/oxford_logo.jpg'
 import EngineerBulletImage from '../images/programming-flag.png'
 import EducationBulletImage from '../images/pencil-2.png'
-import { Shell } from './Layout/Shell'
+import { globalTheme } from '../styles/Theme'
 
 const StyledPortfolioContainer = styled.div`
+  background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-template: 2 / 2;
-  height: 100vh;
+  grid-area: 2 / 2;
+  height: 100%;
 `
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
@@ -31,7 +32,7 @@ const StyledCardHeader = styled.div`
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: top 0.75s ease-in 50ms, left 0.75s ease-in 50ms, transform 0.75s ease-in 50ms;
+  transition: top 0.75s ease-in 100ms, left 0.75s ease-in 100ms, transform 0.75s ease-in 100ms;
   white-space: nowrap;
 
   &:hover {
@@ -100,7 +101,6 @@ const StyledCardBodyHeader = styled.div`
   display: flex;
   flex: 0 0 250px;
   flex-direction: column;
-  margin-top: 32px;
   margin-right: 16px;
   white-space: nowrap;
 `
@@ -142,108 +142,106 @@ const StyledDivider = styled.div`
 const Portfolio = () => {
   return (
     // TODO refactor shell to parent component
-    <Shell>
-      <StyledPortfolioContainer>
-        <StyledPortfolioItem gridArea={'1 / 1 / 2 / 2'}>
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardLogo src={OverLogo} />
-              <h3>Over Inc.</h3>
-            </StyledCardHeader>
-            <StyledCardBody>
-              <StyledCardBodyHeader>
-                <h5>Web Engineer</h5>
-                <StyledDivider />
-                <p>April ‘19 - present</p>
-              </StyledCardBodyHeader>
-              <StyledListContainer>
-                <StyledList listImage={EngineerBulletImage}>
-                  <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
-                  <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
-                  <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
-                  <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
-                </StyledList>
-              </StyledListContainer>
-            </StyledCardBody>
-          </StyledCard>
-        </StyledPortfolioItem>
-        <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardLogo src={TwitchLogo} />
-              <h3>Twitch Inc.</h3>
-            </StyledCardHeader>
-            <StyledCardBody>
-              <StyledCardBodyHeader>
-                <h5>Software Engineer</h5>
-                <StyledDivider />
-                <p>May ‘16 - October ‘17</p>
-              </StyledCardBodyHeader>
-              <StyledListContainer>
-                <StyledList listImage={EngineerBulletImage}>
-                  <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
-                  <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
-                  <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
-                  <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
-                </StyledList>
-              </StyledListContainer>
-            </StyledCardBody>
-          </StyledCard>
-        </StyledPortfolioItem>
-        <StyledPortfolioItem gridArea={'2 / 1 / 3 / 2'}>
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardLogo src={GMULogo} />
-              <h3>George Mason University</h3>
-            </StyledCardHeader>
-            <StyledCardBody>
-              <StyledCardBodyHeader>
-                <h5>Philosophy, B.A.</h5>
-                <StyledDivider />
-                <p>2012</p>
-              </StyledCardBodyHeader>
-              <StyledListContainer>
-                <StyledList listImage={EducationBulletImage}>
-                  <li>Graduated Cum Laude with 3.65 GPA.</li>
-                  <li>Concentrated in Analytic, Ancient and Existential Philosophy.</li>
-                  <li>Founded and led incipient CrossFit affiliate program for 50+ faculty members and students.</li>
-                  <li>Administered fitness and nutritional seminars for 75+ Army ROTC cadets.</li>
-                </StyledList>
-              </StyledListContainer>
-            </StyledCardBody>
-          </StyledCard>
-        </StyledPortfolioItem>
-        <StyledPortfolioItem gridArea={'2 / 2 / 3 / 3'}>
-          <StyledCard>
-            <StyledCardHeader>
-              <StyledCardLogo src={OxfordLogo} />
-              <h3>Oxford University</h3>
-            </StyledCardHeader>
-            <StyledCardBody>
-              <StyledCardBodyHeader>
-                <h5>Philosophy of Science,</h5>
-                <h5>Modern Philosophy</h5>
-                <StyledDivider />
-                <p>2011</p>
-              </StyledCardBodyHeader>
-              <StyledListContainer>
-                <StyledList listImage={EducationBulletImage}>
-                  <li>
-                    Thrived in rigorous tutorial system and under fast-paced deadlines to develop, defend, and progress
-                    well-thought positions and rhetoric.
-                  </li>
-                  <li>
-                    Collaborated with eminent professors to hone critical thinking skills within highly nuanced areas of
-                    philosophical enquiries.
-                  </li>
-                  <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
-                </StyledList>
-              </StyledListContainer>
-            </StyledCardBody>
-          </StyledCard>
-        </StyledPortfolioItem>
-      </StyledPortfolioContainer>
-    </Shell>
+    <StyledPortfolioContainer>
+      <StyledPortfolioItem gridArea={'1 / 1 / 2 / 2'}>
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardLogo src={OverLogo} />
+            <h3>Over Inc.</h3>
+          </StyledCardHeader>
+          <StyledCardBody>
+            <StyledCardBodyHeader>
+              <h5>Web Engineer</h5>
+              <StyledDivider />
+              <p>April ‘19 - present</p>
+            </StyledCardBodyHeader>
+            <StyledListContainer>
+              <StyledList listImage={EngineerBulletImage}>
+                <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
+                <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
+                <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
+                <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
+              </StyledList>
+            </StyledListContainer>
+          </StyledCardBody>
+        </StyledCard>
+      </StyledPortfolioItem>
+      <StyledPortfolioItem gridArea={'1 / 2 / 2 / 3'}>
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardLogo src={TwitchLogo} />
+            <h3>Twitch Inc.</h3>
+          </StyledCardHeader>
+          <StyledCardBody>
+            <StyledCardBodyHeader>
+              <h5>Software Engineer</h5>
+              <StyledDivider />
+              <p>May ‘16 - October ‘17</p>
+            </StyledCardBodyHeader>
+            <StyledListContainer>
+              <StyledList listImage={EngineerBulletImage}>
+                <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
+                <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
+                <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
+                <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
+              </StyledList>
+            </StyledListContainer>
+          </StyledCardBody>
+        </StyledCard>
+      </StyledPortfolioItem>
+      <StyledPortfolioItem gridArea={'2 / 1 / 3 / 2'}>
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardLogo src={GMULogo} />
+            <h3>George Mason University</h3>
+          </StyledCardHeader>
+          <StyledCardBody>
+            <StyledCardBodyHeader>
+              <h5>Philosophy, B.A.</h5>
+              <StyledDivider />
+              <p>2012</p>
+            </StyledCardBodyHeader>
+            <StyledListContainer>
+              <StyledList listImage={EducationBulletImage}>
+                <li>Graduated Cum Laude with 3.65 GPA.</li>
+                <li>Concentrated in Analytic, Ancient and Existential Philosophy.</li>
+                <li>Founded and led incipient CrossFit affiliate program for 50+ faculty members and students.</li>
+                <li>Administered fitness and nutritional seminars for 75+ Army ROTC cadets.</li>
+              </StyledList>
+            </StyledListContainer>
+          </StyledCardBody>
+        </StyledCard>
+      </StyledPortfolioItem>
+      <StyledPortfolioItem gridArea={'2 / 2 / 3 / 3'}>
+        <StyledCard>
+          <StyledCardHeader>
+            <StyledCardLogo src={OxfordLogo} />
+            <h3>Oxford University</h3>
+          </StyledCardHeader>
+          <StyledCardBody>
+            <StyledCardBodyHeader>
+              <h5>Philosophy of Science,</h5>
+              <h5>Modern Philosophy</h5>
+              <StyledDivider />
+              <p>2011</p>
+            </StyledCardBodyHeader>
+            <StyledListContainer>
+              <StyledList listImage={EducationBulletImage}>
+                <li>
+                  Thrived in rigorous tutorial system and under fast-paced deadlines to develop, defend, and progress
+                  well-thought positions and rhetoric.
+                </li>
+                <li>
+                  Collaborated with eminent professors to hone critical thinking skills within highly nuanced areas of
+                  philosophical enquiries.
+                </li>
+                <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
+              </StyledList>
+            </StyledListContainer>
+          </StyledCardBody>
+        </StyledCard>
+      </StyledPortfolioItem>
+    </StyledPortfolioContainer>
   )
 }
 

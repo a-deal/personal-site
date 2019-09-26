@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
-import { useSpring, animated } from 'react-spring'
+import { animated } from 'react-spring'
 
 import { Shell } from '../components/Layout/Shell'
 import Home from '../components/Home'
 import Portfolio from '../components/Portfolio'
+import { globalTheme } from '../styles/Theme'
+import LincolnQuote from '../images/transition_quote.png'
 
 const BoxContainer = styled(animated.div)`
   box-sizing: border-box;
@@ -25,17 +27,28 @@ const Box = styled(animated.div)`
   transition: transform 1s ease-out;
 `
 
-const BoxFace = styled.div<{ transform: string;height: string; width: string }>`
-  border: 1px solid black;
+const BoxFace = styled.div<{ transform: string; height: string; width: string }>`
+  background-color: grey;
   position: absolute;
   width: ${props => props.width};
   height: ${props => props.height};
   transform: ${props => props.transform};
-  background-color: rgba(3, 121, 255, 0.5);
+`
+
+const BoxFaceLift = styled.div`
+  background-color: ${globalTheme.backgroundColor};
+  box-shadow: 0 16px 32px 0 rgba(1, 1, 1, 1);
+  height: calc(100% - 96px);
+  margin: 48px;
 `
 
 const BoxFaceTopBottom = styled(BoxFace)`
   top: calc(calc(100vh - 100vw) / 2);
+`
+
+const StyledImage = styled.img`
+  height: 100%;
+  width: 100%;
 `
 
 // TODO Set background colors
@@ -73,34 +86,34 @@ const rotations = {
 }
 
 const Index = () => {
-  const [flip, setFlipState] = useState(false)
-
-  const springBoxProps = useSpring({
-    transform: ` translateZ(-50vw) rotateY(${flip ? '180deg' : '0deg'})`,
-    config: { duration: 1000 },
-  })
-
-  const handleFlip = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    setFlipState(!flip)
+  const [transitionProps, setTransitionProps] = useState({})
+  useEffect(() => {}, [transitionProps])
+  const transitionHandler = (transitionProps: any): void => {
+    setTransitionProps(transitionProps)
   }
 
   return (
     <Shell>
       <Helmet>
         {/* // TODO Abstract title config */}
-        <title>{flip ? 'Portfolio' : 'Welcome, ברוך הבא, ようこそ, Bienvenido'}</title>
+        <title>{'Welcome, ברוך הבא, ようこそ, Bienvenido'}</title>
       </Helmet>
 
       <BoxContainer>
-        <Box style={springBoxProps}>
+        <Box style={transitionProps}>
           <BoxFace {...rotations.front}>
-            <Home onFlip={handleFlip} />
+            <BoxFaceLift>
+              <Home onTransition={transitionHandler} />
+            </BoxFaceLift>
           </BoxFace>
           <BoxFace {...rotations.back}>
-            <Portfolio />
+            <BoxFaceLift>
+              <Portfolio />
+            </BoxFaceLift>
           </BoxFace>
-          <BoxFace {...rotations.right}>right</BoxFace>
+          <BoxFace {...rotations.right}>
+            <StyledImage src={LincolnQuote} />
+          </BoxFace>
           <BoxFace {...rotations.left}>left</BoxFace>
           <BoxFaceTopBottom {...rotations.top}>top</BoxFaceTopBottom>
           <BoxFaceTopBottom {...rotations.bottom}>bottom</BoxFaceTopBottom>

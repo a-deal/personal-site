@@ -7,11 +7,11 @@ import { GlobalStyle } from '../../styles/Global'
 export const Shell = (props: PropsWithChildren<{}>) => {
   return (
     <Theme>
-      <div>
+      <main>
         <Normalize />
         <GlobalStyle />
         {props.children}
-      </div>
+      </main>
     </Theme>
   )
 }

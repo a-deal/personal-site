@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { useSpring, useTransition, animated, config } from 'react-spring'
 
-import { Shell } from '../components/Layout/Shell'
 import Icons from '../components/icons'
 import AvatarImage from '../images/avatar.jpg'
-// import TransitionImage from '../images/transition_quote.png'
+import RightArrow from '../images/arrow-right.png'
+import { globalTheme } from '../styles/Theme'
 
 const StyledContainer = styled(animated.div)<{ height: string }>`
-  border: 1px solid yellow;
+  background-color: ${globalTheme.backgroundColor};
   display: grid;
   grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr 1fr 1fr;
-  height: ${props => props.height};
+  height: 100%;
 
   ul {
     list-style: none;
@@ -21,7 +21,7 @@ const StyledMiddleContent = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  grid-area: 1 / 2 / 6 / 6;
+  grid-area: 2 / 3 / 5 / 5;
   justify-content: center;
   white-space: pre;
 
@@ -32,19 +32,19 @@ const StyledMiddleContent = styled.div`
 
 const StyledAvatar = styled(animated.img)`
   border-radius: 64px;
-  height: 256px;
-  margin-bottom: 32px;
-  width: 256px;
+  height: 272px;
+  margin-bottom: 48px;
+  width: 272px;
 `
 const StyleMiddleContentSubHeader = styled(animated.div)`
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 `
 
 const StyledRightContent = styled.div`
   align-items: center;
   display: flex;
-  grid-area: 1 / 6 / 6 / 7;
+  grid-area: 3 / 6 / 4 / 7;
   justify-content: space-around;
 `
 
@@ -61,16 +61,17 @@ const StyledIconGroup = styled.div`
 `
 
 const StyledLeftContent = styled.div`
-  grid-area: 2 / 1 / 5 / 2;
+  grid-area: 2 / 1 / 5 / 3;
   padding-left: 32px;
 `
 
-const StyledTextContainer = styled.div`
+const StyledButtonContainer = styled.div`
   align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   line-height: 1.5em;
   margin-bottom: 16px;
+  cursor: pointer;
   white-space: preserve;
 `
 
@@ -79,7 +80,7 @@ const StyledMiddleContentHeader = styled.div`
   justify: center;
 `
 
-const Home = (props: { onFlip(e: MouseEvent<HTMLButtonElement>): void }) => {
+const Home = (props: { onTransition: (transitionProps: any) => void }) => {
   const containerProps = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -133,71 +134,77 @@ const Home = (props: { onFlip(e: MouseEvent<HTMLButtonElement>): void }) => {
     delay: 3000,
   })
 
+  const transitionProps = useSpring({
+    to: [{ transform: `translateZ(-50vw) rotateY(-90deg)` }, { transform: `translateZ(-50vw) rotateY(-180deg)` }],
+    from: { transform: `translateZ(-50vw) rotateY(0deg)` },
+    config: { mass: 25, tension: 50, friction: 50 },
+    delay: 100,
+  })
+
+  const handleTransitionToPortfolio = () => {
+    props.onTransition(transitionProps)
+  }
+
   return (
     // TODO Refactor Shell to Parent
-    <Shell>
-      <StyledContainer style={containerProps} height={'100vh'}>
-        <StyledLeftContent>
-          <StyledIconGroup>
-            <a href="mailto:deal.e.andrew@gmail.com" rel="noopener noreferrer">
-              <Icons.Email />
-            </a>
-            <a target="_blank" href="https://twitter.com/a_e_deal" rel="noopener noreferrer">
-              <Icons.Twitter />
-            </a>
-            <a target="_blank" href="https://www.instagram.com/thales_grapes/" rel="noopener noreferrer">
-              <Icons.Instagram />
-            </a>
-            <a target="_blank" href="https://www.linkedin.com/in/adeal/" rel="noopener noreferrer">
-              <Icons.LinkedIn />
-            </a>
-            <a target="_blank" href="https://github.com/a-deal" rel="noopener noreferrer">
-              <Icons.Github />
-            </a>
-          </StyledIconGroup>
-        </StyledLeftContent>
+    <StyledContainer style={containerProps}>
+      <StyledLeftContent>
+        <StyledIconGroup>
+          <a href="mailto:deal.e.andrew@gmail.com" rel="noopener noreferrer">
+            <Icons.Email />
+          </a>
+          <a target="_blank" href="https://twitter.com/a_e_deal" rel="noopener noreferrer">
+            <Icons.Twitter />
+          </a>
+          <a target="_blank" href="https://www.instagram.com/thales_grapes/" rel="noopener noreferrer">
+            <Icons.Instagram />
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/adeal/" rel="noopener noreferrer">
+            <Icons.LinkedIn />
+          </a>
+          <a target="_blank" href="https://github.com/a-deal" rel="noopener noreferrer">
+            <Icons.Github />
+          </a>
+        </StyledIconGroup>
+      </StyledLeftContent>
 
-        <StyledMiddleContent>
-          <h1>
-            <StyledMiddleContentHeader>
-              {mainHeaderTransitions.map(({ item, props, key }) => (
-                <animated.div key={key} style={props}>
-                  {item.text}
-                </animated.div>
-              ))}
-            </StyledMiddleContentHeader>
-          </h1>
-
-          <StyledAvatar
-            onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-            onMouseLeave={() => set({ xys: [0, 0, 1] })}
-            style={{ transform: avatarProps.xys.interpolate(trans) }}
-            src={AvatarImage}
-          />
-          <StyleMiddleContentSubHeader>
-            {subHeaderTransitions.map(({ item, props, key }) => (
-              <animated.h4 key={key} style={props}>
+      <StyledMiddleContent>
+        <h1>
+          <StyledMiddleContentHeader>
+            {mainHeaderTransitions.map(({ item, props, key }) => (
+              <animated.div key={key} style={props}>
                 {item.text}
-              </animated.h4>
+              </animated.div>
             ))}
-          </StyleMiddleContentSubHeader>
-          <animated.p style={textProps}>These are some of the labels I go by.</animated.p>
-          <animated.p style={textProps}>At my core, I'm just a human empowering other humans.</animated.p>
-        </StyledMiddleContent>
+          </StyledMiddleContentHeader>
+        </h1>
 
-        <StyledRightContent>
-          <StyledRightContentBody>
-            <StyledTextContainer>
-              <button onClick={props.onFlip}>Check this out</button>
-            </StyledTextContainer>
+        <StyledAvatar
+          onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
+          onMouseLeave={() => set({ xys: [0, 0, 1] })}
+          style={{ transform: avatarProps.xys.interpolate(trans) }}
+          src={AvatarImage}
+        />
+        <StyleMiddleContentSubHeader>
+          {subHeaderTransitions.map(({ item, props, key }) => (
+            <animated.h4 key={key} style={props}>
+              {item.text}
+            </animated.h4>
+          ))}
+        </StyleMiddleContentSubHeader>
+        <animated.p style={textProps}>These are some of the labels I go by.</animated.p>
+        <animated.p style={textProps}>At my core, I'm just a human empowering other humans.</animated.p>
+      </StyledMiddleContent>
 
-            <StyledTextContainer>
-              <p>What I’m into</p>
-            </StyledTextContainer>
-          </StyledRightContentBody>
-        </StyledRightContent>
-      </StyledContainer>
-    </Shell>
+      <StyledRightContent>
+        <StyledRightContentBody>
+          <StyledButtonContainer onClick={handleTransitionToPortfolio}>
+            <button>About Me</button>
+            <img src={RightArrow} />
+          </StyledButtonContainer>
+        </StyledRightContentBody>
+      </StyledRightContent>
+    </StyledContainer>
   )
 }
 
