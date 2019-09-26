@@ -18,6 +18,7 @@ const StyledPortfolioContainer = styled.div`
   grid-template: calc(50% - 42px) 84px calc(50% - 42px) / 1fr 84px 1fr;
   height: calc(100%);
   justify-items: center;
+  overflow-x: scroll;
 `
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
