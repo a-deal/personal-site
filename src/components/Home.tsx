@@ -94,15 +94,16 @@ const Home = (props: { onTransition: (transitionProps: any) => void }) => {
   const mainHeaderItems = [
     { text: 'H', key: 1 },
     { text: 'i', key: 2 },
-    { text: ' ', key: 3 },
-    { text: `I'm`, key: 4 },
-    { text: ` `, key: 5 },
-    { text: 'A', key: 6 },
-    { text: 'n', key: 7 },
-    { text: 'd', key: 8 },
-    { text: 'r', key: 9 },
-    { text: 'e', key: 10 },
-    { text: 'w', key: 11 },
+    { text: ',', key: 3 },
+    { text: ' ', key: 4 },
+    { text: `I'm`, key: 5 },
+    { text: ` `, key: 6 },
+    { text: 'A', key: 7 },
+    { text: 'n', key: 8 },
+    { text: 'd', key: 9 },
+    { text: 'r', key: 10 },
+    { text: 'e', key: 11 },
+    { text: 'w', key: 12 },
   ]
 
   const mainHeaderTransitions = useTransition(mainHeaderItems, item => item.key, {

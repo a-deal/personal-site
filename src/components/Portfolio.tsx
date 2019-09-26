@@ -115,8 +115,10 @@ const StyledCardBodyHeader = styled.div`
 `
 
 const StyledList = styled.ol<{ listImage: string }>`
+  height: 80%;
   list-style-type: none;
   margin: auto;
+  overflow-y: scroll;
 
   li {
     margin-bottom: 12px;
@@ -163,7 +165,7 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
   const transitionProps = useSpring({
     to: [{ transform: `translateZ(-50vw) rotateY(-270deg)` }, { transform: `translateZ(-50vw) rotateY(-360deg)` }],
     from: { transform: `translateZ(-50vw) rotateY(180deg)` },
-    config: { mass: 50, tension: 25, friction: 50 },
+    config: { mass: 10, tension: 35, friction: 65 },
     delay: 100,
   })
 
