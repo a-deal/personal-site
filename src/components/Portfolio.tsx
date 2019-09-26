@@ -13,13 +13,11 @@ import { useSpring } from 'react-spring'
 
 const StyledPortfolioContainer = styled.div`
   align-items: center;
-  background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-template: 47.5% 5% 47.5% / 47.5% 5% 47.5%;
-  height: calc(100%);
+  grid-template: 48.75% 2.5% 48.75% / 48.75% 2.5% 48.75%;
+  height: 100%;
   justify-items: center;
   overflow-x: scroll;
-  width: calc(100%);
 `
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
@@ -53,13 +51,11 @@ const StyledCardHeader = styled.div`
 `
 
 const StyledCardBody = styled.div`
-  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   max-height: 100%;
   opacity: 0;
-  overflow: scroll;
+  overflow-y: scroll;
 `
 
 const fadeIn = keyframes`
@@ -73,15 +69,13 @@ const fadeIn = keyframes`
 `
 
 const StyledCard = styled.div`
-  align-items: center;
   background-color: white;
   border: 1px solid #dedede;
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   display: flex;
   height: inherit;
-  justify-content: center;
-  padding: 16px;
+  padding: 24px;
   position: relative;
   overflow-x: scroll;
 
@@ -117,17 +111,12 @@ const StyledCardBodyHeader = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-right: 16px;
-  margin-bottom: 24px;
-  white-space: nowrap;
-`
-
-const StyledListContainer = styled.div`
-  margin: auto;
+  margin-bottom: 32px;
 `
 
 const StyledList = styled.ol<{ listImage: string }>`
   list-style-type: none;
+  margin: auto;
 
   li {
     margin-bottom: 12px;
@@ -199,14 +188,13 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
               <StyledDivider />
               <p>April ‘19 - present</p>
             </StyledCardBodyHeader>
-            <StyledListContainer>
-              <StyledList listImage={EngineerBulletImage}>
-                <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
-                <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
-                <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
-                <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
-              </StyledList>
-            </StyledListContainer>
+
+            <StyledList listImage={EngineerBulletImage}>
+              <li>Led cross-platform initiative to bring Over Teams to parity with our IOS flagship on web.</li>
+              <li>Collaborated on cross-functional teams as Frontend SME to design client-side architectures.</li>
+              <li>Worked closely with product / design teams to cull and implement data-driven UX decisions.</li>
+              <li>Thrived in an autonomous environment to identify user stories and drive feature development.</li>
+            </StyledList>
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
@@ -222,14 +210,13 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
               <StyledDivider />
               <p>May ‘16 - October ‘17</p>
             </StyledCardBodyHeader>
-            <StyledListContainer>
-              <StyledList listImage={EngineerBulletImage}>
-                <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
-                <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
-                <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
-                <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
-              </StyledList>
-            </StyledListContainer>
+
+            <StyledList listImage={EngineerBulletImage}>
+              <li>Introduced OIDC protocol to create Twitch's identity federation for over 15+ million DAUs.</li>
+              <li>Designed client architecture and asset pipelines to reduce latency for a global audience. </li>
+              <li>Collaborated in large-scale technical migration amidst high-impact feature development.</li>
+              <li>Led A/B initiatives to optimize user registration, safety, and experience.</li>
+            </StyledList>
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
@@ -245,14 +232,13 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
               <StyledDivider />
               <p>2012</p>
             </StyledCardBodyHeader>
-            <StyledListContainer>
-              <StyledList listImage={EducationBulletImage}>
-                <li>Graduated Cum Laude with 3.65 GPA.</li>
-                <li>Concentrated in Analytic, Ancient and Existential Philosophy.</li>
-                <li>Founded and led incipient CrossFit affiliate program for 50+ faculty members and students.</li>
-                <li>Administered fitness and nutritional seminars for 75+ Army ROTC cadets.</li>
-              </StyledList>
-            </StyledListContainer>
+
+            <StyledList listImage={EducationBulletImage}>
+              <li>Graduated Cum Laude with 3.65 GPA.</li>
+              <li>Concentrated in Analytic, Ancient and Existential Philosophy.</li>
+              <li>Founded and led incipient CrossFit affiliate program for 50+ faculty members and students.</li>
+              <li>Administered fitness and nutritional seminars for 75+ Army ROTC cadets.</li>
+            </StyledList>
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
@@ -269,19 +255,18 @@ const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
               <StyledDivider />
               <p>2011</p>
             </StyledCardBodyHeader>
-            <StyledListContainer>
-              <StyledList listImage={EducationBulletImage}>
-                <li>
-                  Thrived in rigorous tutorial system and under fast-paced deadlines to develop, defend, and progress
-                  well-thought positions and rhetoric.
-                </li>
-                <li>
-                  Collaborated with eminent professors to hone critical thinking skills within highly nuanced areas of
-                  philosophical enquiries.
-                </li>
-                <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
-              </StyledList>
-            </StyledListContainer>
+
+            <StyledList listImage={EducationBulletImage}>
+              <li>
+                Thrived in rigorous tutorial system and under fast-paced deadlines to develop, defend, and progress
+                well-thought positions and rhetoric.
+              </li>
+              <li>
+                Collaborated with eminent professors to hone critical thinking skills within highly nuanced areas of
+                philosophical enquiries.
+              </li>
+              <li>Member of St. Catherine’s College and the renowned Oxford Union.</li>
+            </StyledList>
           </StyledCardBody>
         </StyledCard>
       </StyledPortfolioItem>
