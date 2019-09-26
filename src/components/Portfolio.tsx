@@ -15,10 +15,11 @@ const StyledPortfolioContainer = styled.div`
   align-items: center;
   background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-template: calc(50% - 42px) 84px calc(50% - 42px) / 1fr 84px 1fr;
+  grid-template: 47.5% 5% 47.5% / 47.5% 5% 47.5%;
   height: calc(100%);
   justify-items: center;
   overflow-x: scroll;
+  width: calc(100%);
 `
 
 const StyledPortfolioItem = styled.div<{ gridArea: string }>`
@@ -44,13 +45,19 @@ const StyledCardHeader = styled.div`
     left: 16px;
     top: 16px;
   }
+
+  h3 {
+    opacity: 1;
+    transition: opacity 0.25s ease-out;
+  }
 `
 
 const StyledCardBody = styled.div`
   align-items: center;
-  align-self: flex-end;
   display: flex;
-  max-height: 75%;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 100%;
   opacity: 0;
   overflow: scroll;
 `
@@ -66,12 +73,14 @@ const fadeIn = keyframes`
 `
 
 const StyledCard = styled.div`
+  align-items: center;
   background-color: white;
   border: 1px solid #dedede;
   box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   display: flex;
   height: inherit;
+  justify-content: center;
   padding: 16px;
   position: relative;
   overflow-x: scroll;
@@ -81,6 +90,10 @@ const StyledCard = styled.div`
       left: 16px;
       transform: translate(0, 0);
       top: 16px;
+
+      h3 {
+        opacity: 0;
+      }
     }
 
     ${StyledCardBody} {
@@ -103,9 +116,9 @@ const StyledCardLogo = styled.img`
 const StyledCardBodyHeader = styled.div`
   align-items: center;
   display: flex;
-  flex: 0 0 250px;
   flex-direction: column;
   margin-right: 16px;
+  margin-bottom: 24px;
   white-space: nowrap;
 `
 
