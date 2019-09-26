@@ -8,6 +8,8 @@ import OxfordLogo from '../images/oxford_logo.jpg'
 import EngineerBulletImage from '../images/programming-flag.png'
 import EducationBulletImage from '../images/pencil-2.png'
 import { globalTheme } from '../styles/Theme'
+import HomeImage from '../images/home.png'
+import { useSpring } from 'react-spring'
 
 const StyledPortfolioContainer = styled.div`
   background-color: ${globalTheme.backgroundColor};
@@ -139,10 +141,40 @@ const StyledDivider = styled.div`
   width: 32px;
 `
 
-const Portfolio = () => {
+const StyledHomeImageContainer = styled.div`
+  align-items: center;
+  background-color: white;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+`
+
+const Portfolio = (props: { onTransition: (transitionProps: any) => void }) => {
+  const transitionProps = useSpring({
+    to: [{ transform: `translateZ(-50vw) rotateY(-270deg)` }, { transform: `translateZ(-50vw) rotateY(-360deg)` }],
+    from: { transform: `translateZ(-50vw) rotateY(180deg)` },
+    config: { mass: 25, tension: 50, friction: 50 },
+    delay: 100,
+  })
+
+  const handleTransitionToHome = () => {
+    props.onTransition(transitionProps)
+  }
   return (
     // TODO refactor shell to parent component
     <StyledPortfolioContainer>
+      <StyledHomeImageContainer onClick={handleTransitionToHome}>
+        <img src={HomeImage} />
+      </StyledHomeImageContainer>
       <StyledPortfolioItem gridArea={'1 / 1 / 2 / 2'}>
         <StyledCard>
           <StyledCardHeader>

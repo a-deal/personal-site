@@ -108,7 +108,7 @@ const Index = () => {
           </BoxFace>
           <BoxFace {...rotations.back}>
             <BoxFaceLift>
-              <Portfolio />
+              <Portfolio onTransition={transitionHandler} />
             </BoxFaceLift>
           </BoxFace>
           <BoxFace {...rotations.right}>
