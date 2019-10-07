@@ -1,4 +1,4 @@
 export default {
   primary: 'Norwester',
-  secondary: 'Kollektif',
+  secondary: 'Comfortaa Regular',
 }

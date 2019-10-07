@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { iconTheme } from '../../styles/Theme'
 
 /* ICONS */
 
@@ -60,15 +61,16 @@ const TwitterIcon = (props: any) => (
 
 const StyledIconContainer = styled.div`
   svg {
+    transform: scale3d(1, 1, 1);
+    transition: transform 0.25s ease-out;
+
     path {
-      fill: rgba(0, 0, 0, 0.5);
+      fill: ${iconTheme.fill};
     }
 
     :hover {
-      path {
-        fill: rgba(0, 0, 0, 1);
-        transition: fill 0.3s;
-      }
+      transform: scale3d(1.2, 1.2, 1.2);
+      transition: transform 0.25s ease-in;
     }
   }
 `

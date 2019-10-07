@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
-import norwester from './fonts/norwester.otf'
-import montserratLight from './fonts/Montserrat-Light.otf'
-import kollektif from './fonts/Kollektif.ttf'
+import norwester from './fonts/Norwester.otf'
+import comfortaa from './fonts/Comfortaa_Regular.otf'
 
 import { globalTheme } from './Theme'
 import { reset } from './utils/reset'
@@ -19,15 +18,9 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
     font-display: fallback;
-    font-family: 'Montserrat Light';
+    font-family: 'Comfortaa Regular';
     font-weight: 400;
-    src: url('${montserratLight}');
-  }
-
-  @font-face {
-    font-display: fallback;
-    font-family: 'Kollektif';
-    src: url('${kollektif}');
+    src: url('${comfortaa}');
   }
 
   html { font-size: 24px; }
@@ -35,10 +28,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${globalTheme.backgroundColor};
     box-sizing: border-box;
-    color: #333;
+    color: ${globalTheme.color};
     font-family: ${globalTheme.fontFamilySecondary}, sans-serif;
     font-weight: 400;
-    line-height: 1.45;
+    line-height: 2;
   }
 
   h1,
