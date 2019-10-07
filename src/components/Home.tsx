@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Icons from '../components/icons'
+import ResumePDF from '../files/Andrew_Deal_Resume_2019.pdf'
 import { globalTheme } from '../styles/Theme'
 
 const StyledContainer = styled.div`
   background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-template: 1fr 2fr 1fr / 1fr 2fr 1fr;
+  grid-template: 1fr 2fr 1fr / 1fr 1fr 1fr;
   height: 100vh;
   width: 100vw;
 
@@ -82,8 +83,8 @@ const Home = () => {
         <a target="_blank" href="https://twitter.com/a_e_deal" rel="noopener noreferrer">
           <Icons.Twitter />
         </a>
-        <a target="_blank" href="https://www.instagram.com/thales_grapes/" rel="noopener noreferrer">
-          <Icons.Instagram />
+        <a target="_blank" href={ResumePDF} rel="noopener noreferrer">
+          <Icons.Resume />
         </a>
         <a target="_blank" href="https://www.linkedin.com/in/adeal/" rel="noopener noreferrer">
           <Icons.LinkedIn />
