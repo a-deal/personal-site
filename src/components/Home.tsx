@@ -8,7 +8,7 @@ import { globalTheme } from '../styles/Theme'
 const StyledContainer = styled.div`
   background-color: ${globalTheme.backgroundColor};
   display: grid;
-  grid-template: 1fr 2fr 1fr / 1fr 1fr 1fr;
+  grid-template: 1fr 2fr 1fr / 1fr 2fr 1fr;
   height: 100vh;
   width: 100vw;
 
@@ -37,6 +37,7 @@ const StyledRule = styled.div`
 `
 
 const StyledBody = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
   grid-area: 2 / 2 / 3 / 3;
@@ -45,6 +46,7 @@ const StyledBody = styled.div`
 
   p {
     margin-bottom: 24px;
+    width: 30em;
   }
 `
 
