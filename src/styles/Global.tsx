@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 import norwester from './fonts/Norwester.otf'
 import comfortaa from './fonts/Comfortaa_Regular.otf'
-
 import { globalTheme } from './Theme'
 import { reset } from './utils/reset'
 
