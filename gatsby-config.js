@@ -10,7 +10,7 @@ module.exports = {
         name: "Andrew Deal's Website",
         short_name: 'Andrew Deal',
         start_url: '/',
-        icon: 'src/images/uxpin-icon-set_like.png',
+        icon: 'src/images/favicon.png',
       },
     },
     `gatsby-plugin-typescript`,

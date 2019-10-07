@@ -8,7 +8,7 @@ const Index = () => {
   return (
     <Shell>
       <Helmet>
-        <title>{'Welcome, ברוך הבא, ようこそ, Bienvenido'}</title>
+        <title>Look within</title>
       </Helmet>
       <Home />
     </Shell>
